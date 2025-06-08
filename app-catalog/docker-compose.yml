@@ -1,0 +1,11 @@
+services:
+  catalog-pg:
+    image: postgres:16-alpine
+    ports:
+      - "5483:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=catalog
+    volumes:
+      - ./docker:/docker-entrypoint-initdb.d

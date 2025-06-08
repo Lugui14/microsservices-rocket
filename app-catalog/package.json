@@ -1,0 +1,31 @@
+{
+  "name": "app-catalog",
+  "version": "1.0.0",
+  "description": "catalog microsservice",
+  "main": "src/http/server.ts",
+  "type": "module",
+  "dependencies": {
+    "amqplib": "^0.10.8",
+    "cors": "^2.8.5",
+    "drizzle-orm": "^0.44.2",
+    "express": "^5.1.0",
+    "pg": "^8.16.0",
+    "typescript": "^5.8.3",
+    "zod": "^3.25.56"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file=.env --no-warnings src/http/server.ts",
+    "start": "node --no-warnings --env-file=.env src/http/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node23": "^23.0.2",
+    "@types/amqplib": "^0.10.7",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.30",
+    "drizzle-kit": "^0.31.1"
+  }
+}
