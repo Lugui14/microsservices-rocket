@@ -1,11 +1,14 @@
+import "@opentelemetry/auto-instrumentations-node/register";
 import express from "express";
 import cors from "cors";
 import { z } from "zod";
+import { trace } from "@opentelemetry/api";
 import type { Request, Response } from "express";
 import { channels } from "../broker/channels/index.ts";
 import { db } from "../db/client.ts";
 import { schema } from "../db/schema/index.ts";
 import { dispatchContentCreatedMessage } from "../broker/messages/content_created.ts";
+import { tracer } from "../tracer/tracer.ts";
 
 const app = express();
 
@@ -26,6 +29,10 @@ app.post("/process", async (req: Request, res: Response) => {
 
   const id = crypto.randomUUID();
 
+  trace.getActiveSpan()?.setAttribute("video.id", id);
+
+  const span = tracer.startSpan("insert_processment");
+
   await db.insert(schema.processments).values({
     id,
     title,
@@ -39,6 +46,8 @@ app.post("/process", async (req: Request, res: Response) => {
     description,
     authorId: author,
   });
+
+  span.end();
 
   res.status(200).json({
     message: "Video processing started",

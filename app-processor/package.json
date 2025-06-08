@@ -21,6 +21,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.60.0",
+    "@opentelemetry/sdk-node": "^0.202.0",
+    "@opentelemetry/sdk-trace-node": "^2.0.1",
     "@tsconfig/node23": "^23.0.2",
     "@types/amqplib": "^0.10.7",
     "@types/cors": "^2.8.19",
