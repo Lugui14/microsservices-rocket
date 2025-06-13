@@ -70,7 +70,7 @@ The repository is organized as follows:
 
 Ensure you have the following installed on your local machine:
 
-- [Node.js](https://nodejs.org/) (v18.x or later)
+- [Node.js](https://nodejs.org/) (v23.x or later)
 - [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 - [Pulumi CLI](https://www.pulumi.com/docs/get-started/install/)
 
